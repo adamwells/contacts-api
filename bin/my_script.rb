@@ -68,8 +68,19 @@ def delete_contact_share
   puts RestClient.delete(url)
 end
 
+def create_comment
+  url = Addressable::URI.new(
+    scheme: 'http',
+    host: 'localhost',
+    port: 3000,
+    path: '/users/2/comments'
+  ).to_s
+
+  puts RestClient.post(url, { comment: { content: "Comment text" }})
+end
+
 begin
-  delete_contact_share
+  create_comment
 rescue => e
   p e
 end

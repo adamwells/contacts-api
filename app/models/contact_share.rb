@@ -7,6 +7,7 @@
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  favorite   :boolean          default("f"), not null
 #
 
 class ContactShare < ActiveRecord::Base

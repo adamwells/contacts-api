@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  favorite   :boolean          default("f"), not null
 #
 
 class Contact < ActiveRecord::Base
@@ -22,6 +23,7 @@ class Contact < ActiveRecord::Base
   )
 
   has_many :contact_shares, dependent: :destroy
+  has_many :comments, :as => :commentable, dependent: :destroy
 
   has_many(
     :shared_users,

@@ -31,6 +31,11 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = @user.contacts.where(favorite: true)
+  end
+
   private
 
   def user_params
