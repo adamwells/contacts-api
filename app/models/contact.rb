@@ -23,6 +23,8 @@ class Contact < ActiveRecord::Base
   )
 
   has_many :contact_shares, dependent: :destroy
+  has_many :favorite_connections, class_name: 'FavoriteContact'
+
   has_many :comments, :as => :commentable, dependent: :destroy
 
   has_many(
@@ -30,4 +32,6 @@ class Contact < ActiveRecord::Base
     through: :contact_shares,
     source: :user
   )
+
+  has_many :user_favorites, through: :favorite_connections, source: :user
 end

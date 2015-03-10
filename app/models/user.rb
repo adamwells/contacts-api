@@ -16,4 +16,10 @@ class User < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
 
   has_many :shared_contacts, through: :contact_shares, source: :contact
+  has_many :favorite_connections, class_name: 'FavoriteContact'
+  has_many :favorite_contacts, through: :favorite_connections, source: :contact
+
+  def all_contacts
+    contacts + shared_contacts
+  end
 end

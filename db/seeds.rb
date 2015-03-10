@@ -16,3 +16,6 @@ ContactShare.create!(user_id: 1, contact_id: 2)
 ContactShare.create!(user_id: 1, contact_id: 3)
 ContactShare.create!(user_id: 2, contact_id: 1)
 ContactShare.create!(user_id: 2, contact_id: 4)
+
+
+FavoriteShare.create!(user_id: 1, contact_id: 2)
